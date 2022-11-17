@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_diana"
+            android:id="@+id/helloText"
+            android:textAlignment="center"
+            android:paddingVertical="10dp"
+            android:textColor="@color/orange"
+            android:textSize="50sp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/imageView"
+            android:layout_height="wrap_content"
+            android:padding="20sp">
+        </ImageView>
+    </LinearLayout>
+</ScrollView>

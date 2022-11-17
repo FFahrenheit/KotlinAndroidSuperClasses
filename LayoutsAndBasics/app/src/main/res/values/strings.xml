@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Test2</string>
+    <string name="hello_diana">Hola Diana</string>
+    <string name="click_string">Click me</string>
+    <string name="dont_click">Don\'t click me</string>
+    <string name="input_your_name">Input your name</string>
+</resources>
