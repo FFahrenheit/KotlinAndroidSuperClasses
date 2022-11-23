@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_super_app"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_margin="10sp"
+        android:textColor="@color/black">
+    </TextView>
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:name="com.example.secondapp.ui.ListDogsFragment"
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentComponent">
+    </androidx.fragment.app.FragmentContainerView>
+</LinearLayout>
