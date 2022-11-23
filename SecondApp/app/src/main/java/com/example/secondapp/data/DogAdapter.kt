@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.secondapp.R
 
 class DogAdapter(
-    private val source : ArrayList<DogModel>
+    var source : ArrayList<DogModel>
 ) : RecyclerView.Adapter<DogAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView = itemView.findViewById<TextView>(R.id.dogName)
