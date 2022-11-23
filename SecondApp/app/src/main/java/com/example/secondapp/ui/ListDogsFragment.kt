@@ -10,13 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.secondapp.R
 import com.example.secondapp.data.DogAdapter
 import com.example.secondapp.data.DogModel
 import com.example.secondapp.data.DogViewModel
+import com.example.secondapp.data.OnDogCardClick
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -43,7 +43,19 @@ class ListDogsFragment : Fragment(R.layout.fragment_list_dogs) {
         newDogButton = view.findViewById(R.id.newDogButton)
         dogsRecyclerView = view.findViewById(R.id.listDogRecyclerView)
 
-        adapter = DogAdapter(dogs.value!!, requireContext())
+        adapter = DogAdapter(dogs.value!!, requireContext(), object : OnDogCardClick {
+            override fun onEditClicked(position: Int) {
+                Toast.makeText(requireContext(), "${position} clicked", Toast.LENGTH_LONG).show()
+
+                val newFragment = ViewDogModel.newInstance(position)
+                parentFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragmentComponent, newFragment)
+                    .commit()
+
+            }
+        })
+
         dogsRecyclerView.adapter = adapter
         dogsRecyclerView.layoutManager = LinearLayoutManager(this.context)
 

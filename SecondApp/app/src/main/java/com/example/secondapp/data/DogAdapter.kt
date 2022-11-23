@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,11 +13,13 @@ import com.squareup.picasso.Picasso
 
 class DogAdapter(
     var source : ArrayList<DogModel>,
-    var context : Context
+    var context : Context,
+    var listener : OnDogCardClick
 ) : RecyclerView.Adapter<DogAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView = itemView.findViewById<TextView>(R.id.dogName)
         val photoImageView = itemView.findViewById<ImageView>(R.id.dogImage)
+        val renameButton = itemView.findViewById<Button>(R.id.renameButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,6 +36,9 @@ class DogAdapter(
         val imageView = holder.photoImageView
         textView.text = dog.name
         Picasso.with(context).load(dog.image).into(imageView)
+        holder.renameButton.setOnClickListener(){
+            listener.onEditClicked(position)
+        }
     }
 
     override fun getItemCount(): Int {
